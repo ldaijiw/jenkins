@@ -27,3 +27,11 @@ A mature CI/CD DevOps practice has the option of implementing continuous deploym
 ## Jenkins
 
 **Jenkins is an open source automation server which enables teams to build their own CI/CD pipelines**
+
+Jenkins receives any code changes from a Github repository via a webhook (any changes are set up to be automatically sent to Jenkins, rather than Jenkins constantly checking for changes)
+
+Jenkins then sends the code to an _Agent Node_ (i.e. the testing environment) where the code is
+- Setup
+- Tested
+
+If anything fails, Jenkins provides feedback to the Dev team so they can make any necessary changes
