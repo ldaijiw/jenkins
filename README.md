@@ -35,3 +35,34 @@ Jenkins then sends the code to an _Agent Node_ (i.e. the testing environment) wh
 - Tested
 
 If anything fails, Jenkins provides feedback to the Dev team so they can make any necessary changes
+
+## Setting Up a Job
+
+Create a new Item in Jenkins, for now selecting _Freestyle Project_, where there are several settings to configure
+
+### General
+- **Description**: optional
+- **Discard old builds**: turn on with 2 (optional) max number of builds to keep
+- **GitHub project**: project url (e.g. ``https://github.com/user/repo_name``)
+
+### Office 365 Connector
+- **Restrict where this project can be run**: logical expression to specify which agent to execute builds of the project (e.g. ``sparta-ubuntu-node``)
+
+### Source Code Management
+
+Select **Git**, this is where the connection to the GitHub repository can be configured
+
+- **Repository URL**: URL for repo found in _Code_-->_Clone_-->_SSH_ (e.g. ``git@github.com:user/repo_name.git``)
+- **Credentials**: This is where the SSH key is added
+
+**SSH Keys with Jenkins and Github**
+
+- Navigate to directory where SSH keys are stored with
+```bash
+cd ~/.ssh
+```
+- Generate a new SSH key with
+```bash
+ssh-keygen -t ed25519
+```
+- Enter the file name to save the key to after being prompted, and leave the passphrases empty
