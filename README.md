@@ -66,3 +66,25 @@ cd ~/.ssh
 ssh-keygen -t ed25519
 ```
 - Enter the file name to save the key to after being prompted, and leave the passphrases empty
+- Add the private key (file with no ``.pub`` extension) to GitHub (_Settings_-->_SSH and GPG keys_-->_New SSH key_)
+- Add the public key (file with ``.pub`` extension) to Jenkins by adding a key
+![](images/jenkins_credentials.png)
+
+- **Branches to build**: specify which branch to build, (e.g. ``*/main``)
+
+### Build Triggers
+
+- **GitHub hook trigger for GITScm polling**: Check this option to trigger Jenkins to build when detecting pushes from the GitHub repository
+
+### Setting Up a Webhook
+
+The final step is crucial to setting up the communication between GitHub and Jenkins.
+
+Setting up the webhook allows GitHub to trigger Jenkins to start a new build whenever a new commit is pushed.
+
+In the GitHub repository that is to be linked to Jenkins, create a new Webhook (_Settings_-->_Webhooks_-->_Add webhook_)
+
+- **Payload URL**: Add the URL (usually specified with ip and port) with ``/github-webhook/`` appended at the end
+- **Content type**: Select ``application/json``
+
+Any new pushes to the repository should now trigger a new build, shown in _Build History_ where the _Console Output_ can be read for each individual build
