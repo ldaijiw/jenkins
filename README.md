@@ -67,7 +67,7 @@ ssh-keygen -t ed25519
 ```
 - Enter the file name to save the key to after being prompted, and leave the passphrases empty
 - Add the private key (file with no ``.pub`` extension) to GitHub (_Settings_-->_SSH and GPG keys_-->_New SSH key_)
-- Add the public key (file with ``.pub`` extension) to Jenkins by adding a key
+- Add the public key (file with ``.pub`` extension) to Jenkins by _adding a key_
 ![](images/jenkins_credentials.png)
 
 - **Branches to build**: specify which branch to build, (e.g. ``*/main``)
